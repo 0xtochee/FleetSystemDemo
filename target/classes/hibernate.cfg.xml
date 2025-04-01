@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vehicle_maintenance</property>
+		<property name="hibernate.connection.username">vehicle_app</property>
+		<property name="hibernate.connection.password">T3c#Crunc#</property>
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.Oracle23cDialect</property> -->
+        <!-- <property name="hibernate.connection.datasource">myDataSource</property> -->
+        <property name="hibernate.default_schema">VEHICLE_MAINTENANCE_DEMO</property>
+        <property name="hibernate.jdbc.time_zone">UTC</property>
+        <property name="hibernate.id.new_generator_mappings">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.use_sql_comments">true</property>
+		<property name="hibernate.connection.debug">true</property>
+		
+		<mapping class="pojo.Office"/>
+        <mapping class="pojo.Client"/>
+        <mapping class="pojo.VehicleCategory"/>
+        <mapping class="pojo.VehicleGroup"/>
+        <mapping class="pojo.Personnel"/>
+        <mapping class="pojo.MaintenanceRequest"/>
+    </session-factory>
+</hibernate-configuration>

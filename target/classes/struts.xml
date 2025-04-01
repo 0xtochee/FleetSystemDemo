@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    
+<struts>
+	<constant name="struts.action.excludePattern" value="/*.js"/>
+	<constant name="struts.devMode" value="true"/>
+	<package name="vehicleMaintenanceDemoAppUno" extends="struts-default">
+		<action name="loginAction" class="action.LoginAction">
+			<result name="success" type="redirect">welcomeAction</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		
+		<action name="welcomeAction" class="action.WelcomeAction">
+			<result name="success">/welcomes.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="filterVehicleGroups" class="action.WelcomeAction" method="filterVehicleGroups">
+		    <result name="success">/vehicleGroupOptions.jsp</result>
+		</action>
+		
+		<action name="showRequestForm" class="action.PrepareRequestFormAction">
+		    <result name="success">/request.jsp</result>
+		    <result name="error">/error.jsp</result>
+		    <result name="input">/request.jsp</result>
+		</action>
+		
+		<action name="submitRequest" class="action.RequestAction">
+		    <result name="success">/success.jsp</result>
+		    <result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="viewHistory" class="action.HistoryAction">
+		    <result name="success">/history.jsp</result>
+		    <result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="searchRequests" class="action.SearchAction">
+		    <result name="success">/history.jsp</result>
+		    <result name="error">/error.jsp</result>
+		</action>
+		
+	   <action name="generateReport" class="action.ReportGenerationAction" method="generateReport">
+		    <result name="success" type="stream">
+		        <param name="contentType">application/pdf</param>
+		        <param name="contentDisposition">attachment;filename="MaintenanceRequestReport.pdf"</param>
+		    </result>
+		    <result name="error">/error.jsp</result>
+		</action>
+        
+	</package>
+</struts>
